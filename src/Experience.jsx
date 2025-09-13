@@ -4,13 +4,14 @@ import { useControls } from "leva";
 
 export default function Experience() {
     
-    const { position, color, opacity, transparent, wireframe } = useControls({
+    const { position, colorBig, colorSmall, opacity, transparent, wireframe } = useControls({
         position: {
           x: 0,
           y: 0,
           z: 0,
         },
-        color: "#ff0000",
+        colorBig: "#ff0000",
+        colorSmall: "#00aeff",
         opacity: {
             value: 0.5,
             min: 0,
@@ -32,11 +33,11 @@ export default function Experience() {
         <directionalLight position={[0, 3, 3]} intensity={0.5} />
 
         // meshes
-        <group>
-        <mesh position={[position.x, position.y, position.z]}>
+        <group position={[0, 1, 0]}>
+            <mesh position={[position.x, position.y, position.z]}>
                 <sphereGeometry />
                 <meshStandardMaterial 
-                    color={color}
+                    color={colorBig}
                     transparent={transparent}
                     opacity={opacity}
                     wireframe={wireframe}
@@ -46,7 +47,7 @@ export default function Experience() {
             <mesh position={[position.x+1.5, position.y, position.z]} scale={0.5}>
                 <sphereGeometry/>
                 <meshStandardMaterial
-                    color={"red"}
+                    color={colorSmall}
                     transparent={transparent}
                     opacity={opacity}
                     wireframe={wireframe}
@@ -56,7 +57,7 @@ export default function Experience() {
             <mesh position={[position.x-1.5, position.y, position.z]} scale={0.5}>
                 <sphereGeometry/>
                 <meshStandardMaterial
-                    color={"red"}
+                    color={colorSmall}
                     transparent={transparent}
                     opacity={opacity}
                     wireframe={wireframe}
