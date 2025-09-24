@@ -31,10 +31,8 @@ export default function Experience() {
             <Environment preset="sunset"/>
         
             <group ref={processesContainer}>
-                
                 <group>
                     <MiningAndMilling/>
-                   
                 </group>
                 
                 <group position-z={1 * SECTIONS_DISTANCE}>
