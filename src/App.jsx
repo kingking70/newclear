@@ -1,17 +1,35 @@
 import { Canvas } from '@react-three/fiber';
 import Experience from './Experience';
-import { Grid, Stats } from '@react-three/drei';
+import { Grid, Scroll, ScrollControls, Stats } from '@react-three/drei';
 import { Leva } from 'leva';
+import { cycles } from '../cycles';
+
 
 
 export default function App() {
+    
+  // stages
+  // 1) mining & milling
+  // 2) conversion
+  // 3) enrichment
+  // 4) fuel fabrication
+  // 5) power plant
+  // 6) fuel storage
+  // 7) waste disposal
+  // 0) recycling
+  // stages = ScrollControls pages
 
+  
   return (
-    <div style={{ width: '100%', height: '100vh', position: 'relative' }}>
-      <Stats /> 
-      <Leva /> 
-      <Canvas camera={{ position: [3, 3, 3] }}>
-        <Grid 
+    <>
+      <Leva />
+      <Stats />
+      <Canvas camera={{ position: [0, 0.5, 5], fov: 42 }}>
+
+        <color attach="background" args={["#f5f3ee"]} />
+        <fog attach="fog" args={["#f5f3ee", 10, 50]} />
+        
+        { /* <Grid
           sectionSize={3}
           sectionColor={"#b37979"}
           sectionThickness={1}
@@ -21,9 +39,17 @@ export default function App() {
           infiniteGrid
           fadeDistance={50}
           fadeStrength={5}
-        />
-        <Experience />
+        /> */ }
+
+        <ScrollControls pages={cycles.length} damping={0.1} maxSpeed={0.2}>
+          <group position-y={-0.5}>
+            <Experience />
+          </group>  
+        </ScrollControls> 
+        
+            
+        
       </Canvas>
-    </div>
-  );
+    </>
+  )
 }

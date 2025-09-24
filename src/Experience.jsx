@@ -1,70 +1,70 @@
-import { OrbitControls } from "@react-three/drei";
-import { useControls } from "leva";
 
+import { Environment, useScroll } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+import { SectionTitle } from "./components/SectionTitle";
+import MiningAndMilling from "./components/Miningandmilling";
+import Conversion from "./components/Conversion";
+import Enrichment from "./components/Enrichment";
+import FuelFabrication from "./components/FuelFabrication";
+import PowerPlant from "./components/PowerPlant";
+import FuelStorage from "./components/FuelStorage";
+import WasteDisposal from "./components/WasteDisposal";
 
 export default function Experience() {
     
-    const { position, colorBig, colorSmall, opacity, transparent, wireframe } = useControls({
-        position: {
-          x: 0,
-          y: 0,
-          z: 0,
-        },
-        colorBig: "#ff0000",
-        colorSmall: "#00aeff",
-        opacity: {
-            value: 0.5,
-            min: 0,
-            max: 1,
-            step: 0.01,
-        },
-        transparent: true,
-        wireframe: false
-      });
-    
-    return <>
+    const processesContainer = useRef();
 
-        // controls
-        <OrbitControls />
+    const SECTIONS_DISTANCE = 15;
+    const scrollData = useScroll();
 
-        // lights
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[0, 0, 3]} intensity={1} />
-        <directionalLight position={[0, 3, 3]} intensity={0.5} />
+    useFrame(() => {
+        processesContainer.current.position.z =
+          -scrollData.offset * SECTIONS_DISTANCE * (scrollData.pages - 1);
+    });
 
-        // meshes
-        <group position={[0, 1, 0]}>
-            <mesh position={[position.x, position.y, position.z]}>
-                <sphereGeometry />
-                <meshStandardMaterial 
-                    color={colorBig}
-                    transparent={transparent}
-                    opacity={opacity}
-                    wireframe={wireframe}
-                />
-            </mesh>
+    return (
+        <>
+
+            { /* <WaterParticles /> */ }        
             
-            <mesh position={[position.x+1.5, position.y, position.z]} scale={0.5}>
-                <sphereGeometry/>
-                <meshStandardMaterial
-                    color={colorSmall}
-                    transparent={transparent}
-                    opacity={opacity}
-                    wireframe={wireframe}
-                />
-            </mesh>
+            <Environment preset="sunset"/>
+        
+            <group ref={processesContainer}>
+                
+                <group>
+                    <MiningAndMilling/>
+                   
+                </group>
+                
+                <group position-z={1 * SECTIONS_DISTANCE}>
+                    <Conversion/>
+                </group>
 
-            <mesh position={[position.x-1.5, position.y, position.z]} scale={0.5}>
-                <sphereGeometry/>
-                <meshStandardMaterial
-                    color={colorSmall}
-                    transparent={transparent}
-                    opacity={opacity}
-                    wireframe={wireframe}
-                />
-            </mesh>
-        </group>
+                <group position-z={2 * SECTIONS_DISTANCE}>
+                    <Enrichment/>
+                </group>
+
+                <group position-z={3 * SECTIONS_DISTANCE}>
+                    <FuelFabrication/>
+                </group>
+
+                <group position-z={4 * SECTIONS_DISTANCE}>
+                    <PowerPlant/>
+                </group>
+
+                <group position-z={5 * SECTIONS_DISTANCE}>
+                    <FuelStorage/>
+                </group>
+
+                <group position-z={6 * SECTIONS_DISTANCE}>
+                    <WasteDisposal/>
+                </group>
+            </group>
+            
         
-        
-    </>
+            
+            
+        </>
+    )
 }
