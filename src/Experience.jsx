@@ -2,8 +2,7 @@
 import { Environment, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { SectionTitle } from "./components/SectionTitle";
-import MiningAndMilling from "./components/MiningAndMilling";
+import MiningAndMilling from "./components/Mining&Milling";
 import Conversion from "./components/Conversion";
 import Enrichment from "./components/Enrichment";
 import FuelFabrication from "./components/FuelFabrication";
