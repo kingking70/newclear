@@ -18,13 +18,12 @@ export default function App() {
   // 7) waste disposal
   // 0) recycling
   // stages = ScrollControls pages
-
   
   return (
     <>
       <Leva />
       <Stats />
-      <Canvas camera={{ position: [0, 0.5, 5], fov: 42 }}>
+      <Canvas camera={{ position: [0, 0, 15], fov: 42}}>
 
         <color attach="background" args={["#f5f3ee"]} />
         <fog attach="fog" args={["#f5f3ee", 10, 50]} />

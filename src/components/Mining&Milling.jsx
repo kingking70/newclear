@@ -49,13 +49,15 @@ export default function MiningAndMilling(props) {
                 </group>
 
 
-                <group scale={0.2} >
-                    <Text position-z={5}>
-                        An chicken egg sized uranium can provide as much electricity as 88 tonnes of coal!!
+                <group scale={0.2}>
+                    { /* to check how to make maxWidth responsive */}
+                    <Text position={[-1, 15, 2]} maxWidth={20}>
+                        A chicken egg sized uranium fuel can provide as much electricity as 88 tonnes of coal!!
+                        according to the International Atomic Energy Agency (IAEA) but apparently i'm blocked idky, forbidden 403 when i try entering the website in singapore. so i'll be referencing most of my information from the book, rad future by isabelle boemeke. uranium mining is now, oct 2025, one of the safest and most tightly regualated in the world. according to hannah ritchie, data scientist and researcher, the amount of mining needed for clean energy for the whole world is 500 to 1000 times less than the current amount we are mining for fossil fuels. the Breakthrough institute reports, '1 gigawatt-hour of electricity with nuclear requires 30% of the rocks and metals needed for solar and just 23% for onshore winds'. more than 50% of uranium mining uses insitu recovery, a process which skips the need for open pits or tunnels. a liquid, made of water, oxygen, hyroden peroxide, and either soduium carbonate or carbon dioxide, is injected into the ground to dissolve uranium which is then pumped to the surface. what happens after?   
                         <meshStandardMaterial color={"black"}/>
                     </Text>
-                    <Text position={[-1, -1, 7]}>
-                        An chicken egg sized uranium can provide as much electricity as 88 tonnes of coal!!
+                    <Text position={[-1, 17, 2]} maxWidth={23}>
+                       
                         <meshStandardMaterial color={"black"}/>
                     </Text>
                 </group>
