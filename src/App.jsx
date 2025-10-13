@@ -22,7 +22,7 @@ export default function App() {
   return (
     <>
       <Leva />
-      <Stats />
+      
       <Canvas camera={{ position: [0, 0, 15], fov: 42}}>
 
         <color attach="background" args={["#f5f3ee"]} />
