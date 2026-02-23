@@ -9,6 +9,9 @@ import FuelFabrication from "./components/FuelFabrication";
 import PowerPlant from "./components/PowerPlant";
 import FuelStorage from "./components/FuelStorage";
 import WasteDisposal from "./components/WasteDisposal";
+import Utopia from "./components/Utopia";
+
+
 
 export default function Experience() {
     
@@ -31,31 +34,31 @@ export default function Experience() {
         
             <group ref={processesContainer}>
                 <group>
-                    <MiningAndMilling/>
+                    <Utopia/>
                 </group>
                 
                 <group position-z={1 * SECTIONS_DISTANCE}>
-                    <Conversion/>
+                    
                 </group>
 
                 <group position-z={2 * SECTIONS_DISTANCE}>
-                    <Enrichment/>
+                    
                 </group>
 
                 <group position-z={3 * SECTIONS_DISTANCE}>
-                    <FuelFabrication/>
+                    
                 </group>
 
                 <group position-z={4 * SECTIONS_DISTANCE}>
-                    <PowerPlant/>
+                    
                 </group>
 
                 <group position-z={5 * SECTIONS_DISTANCE}>
-                    <FuelStorage/>
+                   
                 </group>
 
                 <group position-z={6 * SECTIONS_DISTANCE}>
-                    <WasteDisposal/>
+                    
                 </group>
             </group>
             
