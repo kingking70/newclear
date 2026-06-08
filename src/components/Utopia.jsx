@@ -2,6 +2,7 @@ import { SectionTitle } from "./SectionTitle";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
+import { City } from "./models/City";
 
 export default function Utopia(props) {
 
@@ -12,10 +13,15 @@ export default function Utopia(props) {
         // Uranium
         if (!CityRef.current) return;
         // CityRef.current.rotation.z += 0.3 * delta
-        CityRef.current.rotation.y += 0.2 * delta
+        // CityRef.current.rotation.y += 0.2 * delta
 
 
     })
+
+    // <mesh position={[3, -1, -2]}>
+    //                         <boxGeometry args={[10, 0.1, 10]} />
+    //                         <meshStandardMaterial color="#62bf24" />
+    //                     </mesh>
 
     return (
         <>
@@ -25,10 +31,7 @@ export default function Utopia(props) {
 
                 <group ref={CityRef}>
                     <Float>
-                        <mesh position={[3, 0.5, -2]}>
-                            <boxGeometry args={[0.2, 10, 10]} />
-                            <meshStandardMaterial color="#62bf24" />
-                        </mesh>
+                        <City scale={5} position={[0, -2, 0]}/>
                     </Float>
                 </group>
 
